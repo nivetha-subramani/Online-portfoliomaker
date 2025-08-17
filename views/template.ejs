@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= user.name %>'s Portfolio</title>
+  <link rel="stylesheet" href="/style/style-template.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><strong>
+      <% if (user.name && user.name.includes(' ')) { %>
+        <%= user.name.split(' ')[0] %> <span class="logo-initial"><%= user.name.split(' ')[1] %></span>
+      <% } else { %>
+        <%= user.name %>
+      <% } %>
+    </strong></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><button id="download-pdf-btn" style="background:none;border:none;color:#fff;font-weight:bold;cursor:pointer;">Download as PDF</button></li>
+    </ul>
+  </nav>
+
+
+  <section class="content" id="home">
+    <div class="profile-summary">
+      <h1>Profile Summary</h1>
+      <p><%= user.bio %></p>
+    </div>
+  </section>
+
+  <section class="content" id="skills">
+    <h2>Skills</h2>
+    <div class="profile-summary">
+      <ul>
+        <% skillsArray.forEach(skill => { %>
+          <li><%= skill.trim() %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content" id="achievements">
+    <h2>Achievements</h2>
+    <div class="profile-summary">
+      <ul>
+        <% (user.achievements || '').split('\n').forEach(function(achievement) { if (achievement.trim()) { %>
+          <li><%= achievement.trim() %></li>
+        <% } }) %>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content" id="projects">
+    <h2>Projects</h2>
+    <div class="profile-summary">
+      <% projects.forEach(project => { %>
+        <div class="project">
+          <h3><%= project.title %></h3>
+          <p><%= project.description %></p>
+          <p><strong>Tech Stack:</strong> <%= project.tech_stack %></p>
+          <% if (project.skills) { %>
+            <p><strong>Skills Used:</strong> <%= project.skills %></p>
+          <% } %>
+          <a href="<%= project.project_link %>" target="_blank">View Project</a>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="/style/download-pdf.js"></script>
+  <script src="/style/reveal-on-scroll.js"></script>
+  <script>
+    document.getElementById('download-pdf-btn').addEventListener('click', downloadPortfolioPDF);
+  </script>
+</body>
+</html>

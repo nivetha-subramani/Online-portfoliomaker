@@ -1,0 +1,179 @@
+
+
+/* Output container */
+.container {
+  padding: 40px 20px;
+  background-color: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.project-box {
+  margin-bottom: 25px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-left ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-left li {
+    width: 100%;
+  }
+
+  .nav-left a {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-right {
+    margin-top: 10px;
+    width: 100%;
+    text-align: right;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+}
+
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-left .site-title {
+  color: rgba(255, 255, 0, 0.696);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-right .nav-link {
+  margin-left: 20px;
+  color: rgba(255, 255, 0, 0.696);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.navbar-right .nav-link:hover {
+  background-color: white;
+  color: black;
+}
+
+.navbar-right .nav-link:active {
+  background-color: yellow;
+  color: black;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* === Your Existing CSS === */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #525254e8, #636363f6);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.form-container {
+  background-color: rgb(255, 255, 255);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+button {
+  padding: 10px 16px;
+  margin-top: 10px;
+  border: none;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #003d80;
+}
+
+.project-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+

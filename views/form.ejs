@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Portfolio</title>
+  <link rel="stylesheet" href="/style/style-form.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Portfolio Form</h1>
+    <form method="POST" action="/generate">
+
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+      </div>
+
+      <div class="form-row">
+        <textarea name="bio" placeholder="Your Bio" rows="3" required></textarea>
+      </div>
+
+      <h2>Skills</h2>
+      <div class="form-row">
+        <textarea name="skills" placeholder="Your Skills (comma separated)" rows="2"></textarea>
+      </div>
+
+      <h2>Achievements</h2>
+      <div class="form-row">
+        <textarea name="achievements" placeholder="Your Achievements" rows="3"></textarea>
+      </div>
+
+      <h2>Projects</h2>
+      <div id="projects">
+        <div class="project-entry">
+          <input type="text" name="projects[0][title]" placeholder="Project Title" required>
+          <textarea name="projects[0][description]" placeholder="Project Description" rows="2" required></textarea>
+          <input type="text" name="projects[0][tech_stack]" placeholder="Tech Stack" required>
+          <input type="text" name="projects[0][project_link]" placeholder="Project Link" required>
+          <input type="text" name="projects[0][skills]" placeholder="Skills Used (optional)">
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" onclick="addProject()">➕ Add Project</button>
+        <button type="submit">Generate</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let projectIndex = 1;
+    function addProject() {
+      const container = document.getElementById('projects');
+      const entry = document.createElement('div');
+      entry.classList.add('project-entry');
+      entry.innerHTML = `
+        <input type="text" name="projects[${projectIndex}][title]" placeholder="Project Title" required>
+        <textarea name="projects[${projectIndex}][description]" placeholder="Project Description" rows="2" required></textarea>
+        <input type="text" name="projects[${projectIndex}][tech_stack]" placeholder="Tech Stack" required>
+        <input type="text" name="projects[${projectIndex}][project_link]" placeholder="Project Link" required>
+        <input type="text" name="projects[${projectIndex}][skills]" placeholder="Skills Used (optional)">
+      `;
+      container.appendChild(entry);
+      projectIndex++;
+    }
+  </script>
+</body>
+</html>
